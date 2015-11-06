@@ -25,7 +25,7 @@ class List
   end
 
   def delete_complete_tasks
-    @tasks = @tasks.select {|task| not task.complete}
+    @tasks = @tasks.select { |task| !task.complete }
   end
 
   def sort_by_priority

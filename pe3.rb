@@ -1,4 +1,4 @@
-# Prime divisors
+Prime divisors
 
 @prime = []
 
