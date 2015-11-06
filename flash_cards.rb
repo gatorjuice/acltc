@@ -14,8 +14,12 @@ class Card
     @correct_answer = answers[:ca]
     @incorrect_answer1 = answers[:ia1]
     @incorrect_answer2 = answers[:ia2]
+    @correctly_answered = false
   end
 
+  def correctly_answered
+    @correctly_answered = !@correctly_answered
+  end  
 end
 
 class Deck
@@ -45,18 +49,55 @@ trivia_data = {
   "Which sport was an offical Olympic event?" => {ia1: "Checkers", ia2: "Hopscotch", ca: "Tug of war"} 
 }
 
-deck = Deck.new(trivia_data) # deck is an instance of the Deck class
-
+deck = Deck.new(trivia_data)# deck is an instance of the Deck class
+discard = {}
+num_correct = 0
 while deck.remaining_cards > 0
+  puts "so far you have #{num_correct} questions right."
   card = deck.draw_card # card is an instance of the Card class
   puts card.question
-  puts card.incorrect_answer1
-  puts card.incorrect_answer2
-  puts card.correct_answer
+  answers = []
+  answers << card.incorrect_answer1
+  answers << card.incorrect_answer2
+  answers << card.correct_answer
+  answers.shuffle!
+  answers.each { |answer| puts answer }
   user_answer = gets.chomp
   if user_answer.downcase == card.correct_answer.downcase
+    system('clear')
     puts "Correct!"
+    num_correct += 1
+    card.correctly_answered
   else
+    system('clear')
     puts "Incorrect!"
+    discard.merge!({card.question => {ca: card.correct_answer, ia1: card.incorrect_answer1, ia2: card.incorrect_answer2}
+  })
+  end
+
+end
+
+deck = Deck.new(discard)
+
+while deck.remaining_cards > 0
+card = deck.draw_card
+puts card.question
+answers = []
+answers << card.incorrect_answer1
+answers << card.incorrect_answer2
+answers << card.correct_answer
+answers.shuffle!
+answers.each { |answer| puts answer }
+user_answer = gets.chomp
+  if user_answer.downcase == card.correct_answer.downcase
+    system('clear')
+    puts "Correct!"
+    num_correct += 1
+    card.correctly_answered
+  else
+    system('clear')
+    puts "Incorrect!"
+    discard.merge!({card.question => {ca: card.correct_answer, ia1: card.incorrect_answer1, ia2: card.incorrect_answer2}
+    })
   end
 end
