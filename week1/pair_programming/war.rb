@@ -12,6 +12,8 @@ end
 
 class Deck
   
+  attr_reader :deck
+  
   def initialize
     @deck = [
       Card.new("2", "Hearts", 1),
