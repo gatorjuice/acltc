@@ -4,7 +4,7 @@
 # 4. CHALLENGE: Change the program to keep track of number right/wrong and give a score at the end.
 # 5. CHALLENGE: Change the program to give the user the choice at the end of the game to retry the cards they got wrong.
 # 6. CHALLENGE: Change the interface with better prompts, ASCII art, etc. Be as creative as you'd like!
-
+system('clear')
 class Card
 
   attr_reader :question, :correct_answer, :incorrect_answer1, :incorrect_answer2
@@ -26,8 +26,7 @@ class Deck
 
   def initialize(trivia_data)
     @cards = []
-    @trivia_data = trivia_data
-    @trivia_data.each do |question, answers|
+    trivia_data.each do |question, answers|
       @cards << Card.new(question, answers)
     end
     @cards.shuffle!
@@ -56,11 +55,7 @@ while deck.remaining_cards > 0
   puts "so far you have #{num_correct} questions right."
   card = deck.draw_card # card is an instance of the Card class
   puts card.question
-  answers = []
-  answers << card.incorrect_answer1
-  answers << card.incorrect_answer2
-  answers << card.correct_answer
-  answers.shuffle!
+  answers = [card.incorrect_answer1, card.incorrect_answer2, card.correct_answer].shuffle
   answers.each { |answer| puts answer }
   user_answer = gets.chomp
   if user_answer.downcase == card.correct_answer.downcase
@@ -77,18 +72,24 @@ while deck.remaining_cards > 0
 
 end
 
+5.times do 
+system('clear')
+print "READY FOR A SECOND TRY   "
+sleep(0.7)
+system('clear')
+print "READY FOR A SECOND TRY..."
+sleep(0.7)
+system('clear')
+end
+
 deck = Deck.new(discard)
 
 while deck.remaining_cards > 0
-card = deck.draw_card
-puts card.question
-answers = []
-answers << card.incorrect_answer1
-answers << card.incorrect_answer2
-answers << card.correct_answer
-answers.shuffle!
-answers.each { |answer| puts answer }
-user_answer = gets.chomp
+  card = deck.draw_card
+  puts card.question
+  answers = [card.incorrect_answer1, card.incorrect_answer2, card.correct_answer].shuffle
+  answers.each { |answer| puts answer }
+  user_answer = gets.chomp
   if user_answer.downcase == card.correct_answer.downcase
     system('clear')
     puts "Correct!"
@@ -97,7 +98,7 @@ user_answer = gets.chomp
   else
     system('clear')
     puts "Incorrect!"
-    discard.merge!({card.question => {ca: card.correct_answer, ia1: card.incorrect_answer1, ia2: card.incorrect_answer2}
-    })
   end
 end
+
+puts "Congratulations you got #{num_correct} question right!"
