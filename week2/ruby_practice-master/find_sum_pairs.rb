@@ -3,11 +3,13 @@ def find_sum_pairs(array_of_numbers_to_sum, add_up_to)
     array_of_pairs = []
     array_of_numbers_to_sum.each do |n|
         x = add_up_to - n
-        if x + n == add_up_to && array_of_numbers_to_sum.include?(x)
+        if x + n == add_up_to && array_of_numbers_to_sum.include?(x) && n != x
            array_of_pairs << [x, n] 
         end
     end
-    array_of_pairs
+    num_to_keep = array_of_pairs.length / 2
+    num_to_delete = array_of_pairs.length - num_to_keep
+    array_of_pairs.pop(num_to_delete).sort
 end
 
 # Driver code
