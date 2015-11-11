@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @title %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= link_to 'home', '/' %>
+  <h1>Jamie's One Stop Shop for 3 Useless Things</h1>
+  <h3>You'll never need to come here again</h3>
+<%= yield %>
+  
+</body>
+</html>
