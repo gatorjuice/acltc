@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  
+  @@random_number = rand(3)
   $views = 0
 
   def fortune
@@ -25,6 +25,18 @@ class PagesController < ApplicationController
     
     @numbers.each { |n| n }
 
+  end
+
+  def number_game 
+
+
+  end
+
+  def number_guess
+    @message = "you lost"
+    if @@random_number == params[:guess].to_i
+      @message = "you win"
+    end
   end
 
 end

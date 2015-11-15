@@ -7,8 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
+
+<%= link_to "Add New Contact", '/new_contact_form' %>
 
 <%= yield %>
+
+
+</div>
 
 </body>
 </html>

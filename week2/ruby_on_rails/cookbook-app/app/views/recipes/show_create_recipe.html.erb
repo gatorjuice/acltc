@@ -1,0 +1,19 @@
+<%= form_tag 'create_recipe_result', method: :post do %>
+    <div class="form-group">
+    <%= label_tag :title, 'Recipe Name:' %>
+    <%= text_field_tag :title %>
+    </div>
+    <div class="form-group">
+    <%= label_tag :chef, 'Chef:' %>
+    <%= text_field_tag :chef %>
+    </div>
+    <div class="form-group">
+    <%= label_tag :ingredients, 'Ingredients:' %>
+    <%= text_field_tag :ingredients %>
+    </div>
+    <div class="form-group">
+    <%= label_tag :directions, 'Directions:' %>
+    <%= text_field_tag :directions %>
+    </div>
+    <%= submit_tag "Add" %>
+    <% end %>

@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   
   get '/' => 'recipes#home'
+  get '/recipes' => 'recipes#all'
 
 
-
+  get '/show_create_recipe' => 'recipes#show_create_recipe'
+  post '/create_recipe_result' => 'recipes#create_recipe_result'
 
 
 

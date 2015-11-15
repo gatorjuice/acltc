@@ -1,0 +1,7 @@
+<%= form_tag '/number_game_result', method: :post do %>
+<%= label_tag :guess, "enter your guess" %>
+<%= text_field_tag :guess %>
+
+<%= submit_tag "Submit" %>
+
+<% end %>

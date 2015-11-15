@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/lottery' => 'pages#lottery'
   get '/count_view' => 'pages#count_view'
 
+  get '/number_game' => 'pages#number_game'
+  post '/number_game_result' => 'pages#number_guess'
 
 
 
