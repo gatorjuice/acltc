@@ -1,0 +1,24 @@
+
+<h1>
+  <%= form_tag '/contacts', method: :post do %>
+    <div class="form-group">
+      <%= label_tag :input_first_name, nil, class: "new-contact-form" %>
+      <%= text_field_tag :input_first_name, nil, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :input_last_name, nil, class: "new-contact-form" %>
+      <%= text_field_tag :input_last_name, nil, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :input_email, nil, class: "new-contact-form" %>
+      <%= email_field_tag :input_email, nil, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :input_phone_number, nil, class: "new-contact-form" %>
+      <%= phone_field_tag :input_phone_number, nil, class: "form-control" %>
+    </div>
+    <div>
+      <%= button_tag 'Add', class: "btn btn-default" %>
+    </div>
+  <% end %>
+</h1>

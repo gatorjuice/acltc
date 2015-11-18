@@ -1,0 +1,8 @@
+<h1>All Contacts</h1>
+
+<ul>
+  <% @contacts.each do |user| %>
+    <li><%= link_to "#{user.first_name} #{user.last_name}", "/contacts/#{user.id}" %> <%= user.email %> <%= user.phone_number %></li>
+  <% end %>
+</ul>
+

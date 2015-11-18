@@ -1,0 +1,25 @@
+<%= form_tag "/contacts/#{@contact.id}", method: :patch do %>
+
+<div>
+<%= label_tag :input_first_name %>
+<%= text_field_tag :input_first_name, @contact.first_name %>
+</div>
+
+<div>
+<%= label_tag :input_last_name %>
+<%= text_field_tag :input_last_name, @contact.last_name %>
+</div>
+
+<div>
+<%= label_tag :input_email %>
+<%= text_field_tag :input_email, @contact.email %>
+</div>
+
+<div>
+<%= label_tag :input_phone_number %>
+<%= text_field_tag :input_phone_number, @contact.phone_number %>
+</div>
+
+<%= submit_tag "Update Contact" %>
+
+<% end %>

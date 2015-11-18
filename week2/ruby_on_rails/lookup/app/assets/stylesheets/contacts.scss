@@ -3,9 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-$background-color: blue;
-
+html {
+  background: url("subtle_white_feathers.png") repeat fixed center center;
+}
 
 .main {
-  background-color: $background-color;
+}
+
+.new-contact-form {
+  font-size: 16px;
 }
