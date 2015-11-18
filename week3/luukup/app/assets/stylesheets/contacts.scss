@@ -2,9 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+  background: url('dark_embroidery.png') repeat center center;
+}
+
 .contact-card {
 
-  border: 1px solid black;
+  padding: 5px;
+  background: url('creampaper.png') repeat center center;
 
   a:hover {
     text-decoration: none;

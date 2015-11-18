@@ -2,9 +2,10 @@
   <h4><%= @contact.last_name %><small>, <%= @contact.first_name %></small></h4>
   <p>c. <%= @contact.cell_phone %></p>
   <p>h. <%= @contact.home_phone %></p>
-  <p><%= @contact.email %></p>
+  <p><%= mail_to @contact.email %></p>
   <p><%= @contact.birthday %></p>
   <p><%= @contact.website %></p>
-  <%= image_tag(@contact.photo) %>
   <%= link_to "Edit Contact", "/contacts/#{@contact.id}/edit", class: "btn btn-info" %>
+  <div class="show-contact-card-photo"><%= image_tag(@contact.photo) %></div>
+
 </div>

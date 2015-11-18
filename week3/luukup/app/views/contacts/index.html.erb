@@ -1,12 +1,17 @@
-<% @contacts.each do |contact| %>
-<div class="contact-card">
-  <h4><%= contact.last_name %><small>, <%= contact.first_name %></small></h4>
-  <p>c. <%= contact.cell_phone %></p>
-  <p>h. <%= contact.home_phone %></p>
-  <p><%= contact.email %></p>
-  <p><%= contact.birthday %></p>
-  <p><%= contact.website %></p>
-  <%= image_tag(contact.photo) %>
+<div class="row"> 
+  <% @contacts.each do |contact| %>
+  <div class="col-lg-3"> 
+    <div class="contact-card">
+      <div class="contact-card-photo pull-right">
+        <%= image_tag(contact.photo) %>
+      </div>
+      <%= link_to "/contacts/#{contact.id}" do %><h4><%= contact.last_name %><small>, <%= contact.first_name %></small></h4><% end %>
+      <p>c. <%= contact.cell_phone %></p>
+      <p>h. <%= contact.home_phone %></p>
+      <p><%= mail_to contact.email %></p>
+      <p><%= contact.birthday %></p>
+      <p><%= contact.website %></p>
+    </div>
+  </div>
+  <% end %>
 </div>
-
-<% end %>
