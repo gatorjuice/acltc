@@ -1,0 +1,12 @@
+<% @contacts.each do |contact| %>
+<div class="contact-card">
+  <h4><%= contact.last_name %><small>, <%= contact.first_name %></small></h4>
+  <p>c. <%= contact.cell_phone %></p>
+  <p>h. <%= contact.home_phone %></p>
+  <p><%= contact.email %></p>
+  <p><%= contact.birthday %></p>
+  <p><%= contact.website %></p>
+  <%= image_tag(contact.photo) %>
+</div>
+
+<% end %>

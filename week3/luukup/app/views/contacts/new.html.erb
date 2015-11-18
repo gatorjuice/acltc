@@ -1,0 +1,39 @@
+<%= form_tag "/contacts", class: "new-contact-form", method: :post do %>  
+<div class="form-group new-contact-form-field">
+  <%= label_tag :first_name, "First Name:" %>
+  <%= text_field_tag :first_name, nil, placeholder: "first name" %>
+</div>
+<div class="form-group new-contact-form-field">
+  <%= label_tag :last_name, "Last Name:" %>
+  <%= text_field_tag :last_name, nil, placeholder: "last Name" %>
+</div>
+<div class="form-group new-contact-form-field">
+  <%= label_tag "Company:" %>
+  <%= text_field_tag :company, nil, placeholder: "company" %>
+</div>
+<div class="form-group new-contact-form-field">
+  <%= label_tag "Cell Phone:" %>
+  <%= telephone_field_tag :cell_phone, nil, placeholder: "cell phone" %>
+</div>
+<div class="form-group new-contact-form-field">
+  <%= label_tag "Home Phone:" %>
+  <%= telephone_field_tag :home_phone, nil, placeholder: "home phone" %>
+</div>
+<div class="form-group new-contact-form-field">
+  <%= label_tag "Email:" %>
+  <%= email_field_tag :email, nil, placeholder: "email" %>
+</div>
+<div class="form-group new-contact-form-field">
+  <%= label_tag "Birthday" %>
+  <%= date_field_tag :birthday, nil, placeholder: "birthday" %>
+</div>
+<div class="form-group new-contact-form-field">
+  <%= label_tag "Website:" %>
+  <%= text_field_tag :website, nil, placeholder: "website" %>
+</div>
+<div class="form-group new-contact-form-field">
+  <%= label_tag "Photo Url:" %>
+  <%= text_field_tag :photo, nil, placeholder: "photo url" %>
+</div>
+<%= submit_tag "Add Contact" %>
+<% end %>
